@@ -877,16 +877,16 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
     'sainnhe/gruvbox-material',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
+      vim.g.gruvbox_material_better_performance = 1
+      vim.g.gruvbox_material_transparent_background = 2
+      vim.g.gruvbox_material_diagnostic_text_highlight = 1
+      vim.g.gruvbox_material_current_word = 'bold'
+
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.cmd.colorscheme 'tokyonight-night'
       vim.cmd.colorscheme 'gruvbox-material'
-
-      vim.g.gruvbox_material_better_performance = 1
-      vim.g.gruvbox_material_transparent_background = 2
-      vim.g.gruvbox_material_diagnostic_text_highlight = 1
-      vim.g.gruvbox_material_current_word = 'bold'
     end,
   },
 
