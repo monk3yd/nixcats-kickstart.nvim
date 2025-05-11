@@ -876,17 +876,32 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'sainnhe/gruvbox-material',
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
+    init = function() -- Use init instead of config
+      -- Set all options before the plugin loads
       vim.g.gruvbox_material_better_performance = 1
       vim.g.gruvbox_material_transparent_background = 2
       vim.g.gruvbox_material_diagnostic_text_highlight = 1
       vim.g.gruvbox_material_current_word = 'bold'
-
+      vim.g.gruvbox_material_enable_italic = 0
+      vim.g.gruvbox_material_disable_terminal_colors = 1
+    end,
+    config = function()
       -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
       vim.cmd.colorscheme 'gruvbox-material'
+
+      -- Also set up autocommand for future colorscheme changes
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        pattern = '*',
+        callback = function()
+          vim.defer_fn(function()
+            vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
+            vim.cmd 'hi NormalFloat guibg=NONE ctermbg=NONE'
+            vim.cmd 'hi NormalNC guibg=NONE ctermbg=NONE'
+            vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
+            vim.cmd 'hi EndOfBuffer guibg=NONE ctermbg=NONE'
+          end, 1)
+        end,
+      })
     end,
   },
 

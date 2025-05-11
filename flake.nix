@@ -132,8 +132,8 @@
           cmp_luasnip
           cmp-nvim-lsp
           cmp-path
-          tokyonight-nvim
           gruvbox-material
+          # tokyonight-nvim
           todo-comments-nvim
           mini-nvim
           nvim-treesitter.withAllGrammars
@@ -239,9 +239,9 @@
           suffix-path = true;
           suffix-LD = true;
           wrapRc = true;
-          # IMPORTANT: FIX
+          # IMPORTANT
           # your alias may not conflict with your other packages.
-          aliases = [ "v" ];
+          aliases = [ "vim" ];
           # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
           hosts.python3.enable = true;
           hosts.node.enable = true;
