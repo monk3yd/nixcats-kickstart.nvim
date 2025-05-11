@@ -1,3 +1,23 @@
+# Plugins TODO
+
+- [ ] swaits/zellij-nav.nvim // tmux
+- [ ] kevinhwang91/nvim-ufo
+- [ ] harpoon
+- [ ] git-workspaces
+- [ ] AI option (on/off) ?
+- [ ] Note taking NeOrg (worth?)
+
+# Features TODO/TEST
+
+- [ ] Python ecosystem (debugger, linter, ...)
+- [ ] Golang ecosystem
+- [ ] Lua ecosystem
+- [ ] Nix ecosystem
+- [ ] JS ecosystem (iuuhg)
+- [ ] HTML/HTMX
+- [ ] CSS/TailwindCSS
+- [ ] Templ (?)
+
 # This is the help for the nixCats lazy wrapper
 
 Or well, most of the help for it. There is also help for it at [:h nixCats.luaUtils](https://nixcats.org/nixCats_luaUtils.html)
