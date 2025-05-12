@@ -169,10 +169,13 @@
           nvim-web-devicons
           plenary-nvim
         ];
-
-
         kickstart-zellij-nav = [
           zellij-nav-nvim
+        ];
+        kickstart-ufo = [
+          nvim-ufo
+          promise-async
+          statuscol-nvim
         ];
       };
 
@@ -271,6 +274,7 @@
           kickstart-gitsigns = true;
 
           kickstart-zellij-nav = true;
+          kickstart-ufo = true;
 
           # we can pass whatever we want actually.
           have_nerd_font = false;
