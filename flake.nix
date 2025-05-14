@@ -101,6 +101,9 @@
           lua-language-server
           nixd
           stylua
+          pyright
+          gopls
+          typescript-language-server
         ];
         kickstart-debug = [
           delve
