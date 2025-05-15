@@ -100,6 +100,6 @@ return {
     }
 
     -- Install python specific config
-    require('dap-python').setup 'uv'
+    require('dap-python').setup 'python3'
   end,
 }
