@@ -107,9 +107,11 @@
         ];
         kickstart-debug = [
           delve
+          debugpy
         ];
         kickstart-lint = [
           markdownlint-cli
+          ruff
         ];
       };
 
@@ -153,6 +155,7 @@
           nvim-dap-ui
           nvim-dap-go
           nvim-nio
+          nvim-dap-python
         ];
         kickstart-indent_line = [
           indent-blankline-nvim

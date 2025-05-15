@@ -9,7 +9,7 @@
 return {
   'mfussenegger/nvim-dap',
   -- NOTE: nixCats: return true only if category is enabled, else false
-  enabled = require('nixCatsUtils').enableForCategory("kickstart-debug"),
+  enabled = require('nixCatsUtils').enableForCategory 'kickstart-debug',
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -24,6 +24,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'hfussenegger/nvim-dap-python',
   },
   config = function()
     local dap = require 'dap'
@@ -45,6 +46,7 @@ return {
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
           'delve',
+          'debugpy',
         },
       }
     end
@@ -96,5 +98,8 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+
+    -- Install python specific config
+    require('dap-python').setup 'uv'
   end,
 }
