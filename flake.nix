@@ -107,7 +107,7 @@
         ];
         kickstart-debug = [
           delve
-          debugpy
+          # debugpy
         ];
         kickstart-lint = [
           markdownlint-cli
