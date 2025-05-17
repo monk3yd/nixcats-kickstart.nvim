@@ -138,6 +138,7 @@
           cmp-nvim-lsp
           cmp-path
           gruvbox-material
+          toggleterm-nvim
           # tokyonight-nvim
           todo-comments-nvim
           mini-nvim
