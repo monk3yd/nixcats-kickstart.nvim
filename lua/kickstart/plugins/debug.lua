@@ -83,6 +83,8 @@ return {
       },
     }
 
+    vim.api.nvim_call_function('sign_define', { 'DapBreakpoint', { text = '', texthl = 'red', numhl = '', linehl = '' } })
+
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
 
