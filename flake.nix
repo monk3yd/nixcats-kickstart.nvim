@@ -104,6 +104,8 @@
           pyright
           gopls
           typescript-language-server
+          vscode-langservers-extracted
+          # prettierd
         ];
         kickstart-debug = [
           delve

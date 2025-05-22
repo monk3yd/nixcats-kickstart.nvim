@@ -708,6 +708,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
         servers.pyright = {}
         servers.gopls = {}
         servers.tsserver = {}
+        servers.jsonls = {}
       else
         servers.rnix = {}
         servers.nil_ls = {}
