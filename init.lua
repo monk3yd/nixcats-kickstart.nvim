@@ -262,6 +262,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Add this new block for filetype-specific settings
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'json',
+  callback = function()
+    vim.opt_local.shiftwidth = vim.g.json_tab_width or 2
+    vim.opt_local.tabstop = vim.g.json_tab_width or 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
 -- NOTE: nixCats: You might want to move the lazy-lock.json file
 local function getlockfilepath()
   if require('nixCatsUtils').isNixCats and type(nixCats.settings.unwrappedCfgPath) == 'string' then
