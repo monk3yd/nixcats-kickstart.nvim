@@ -708,7 +708,18 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
         servers.pyright = {}
         servers.gopls = {}
         servers.tsserver = {}
-        servers.jsonls = {}
+        servers.jsonls = {
+          settings = {
+            json = {
+              format = {
+                enable = true,
+                -- Set the tab size for JSON formatting
+                tabSize = vim.g.json_tab_width or 2,
+              },
+              validate = { enable = true },
+            },
+          },
+        }
       else
         servers.rnix = {}
         servers.nil_ls = {}
