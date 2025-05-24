@@ -146,6 +146,10 @@ vim.opt.scrolloff = 10
 -- Wrap long lines into the next line
 vim.opt.wrap = false
 
+-- Set general tabwidth
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
