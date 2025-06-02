@@ -734,6 +734,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
             },
           },
         }
+        servers.html = {}
       else
         servers.rnix = {}
         servers.nil_ls = {}
@@ -821,6 +822,8 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
+
+      -- Map of treesitter language to filetype
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
