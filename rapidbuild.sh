@@ -1,3 +1,5 @@
 #!/bin/bash
 
-nix build .
+# nix build .
+
+nix run #nvim

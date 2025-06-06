@@ -413,6 +413,36 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      {
+        "polarmutex/git-worktree.nvim",
+        version = "^2",
+        keys = {
+          { "<leader>gw", "<cmd>Telescope git_worktree<cr>", desc = "[G]it [W]orktrees" },
+        },
+        config = function()
+            local Hooks = require("git-worktree.hooks")
+            local config = require("git-worktree.config")
+            local update_on_switch = Hooks.builtins.update_current_buffer_on_switch
+
+            Hooks.register(Hooks.type.SWITCH, function (path, prev_path)
+                vim.notify("Moved from " .. prev_path .. " to " .. path)
+                update_on_switch(path, prev_path)
+            end)
+
+            Hooks.register(Hooks.type.DELETE, function ()
+                vim.cmd(config.update_on_change_command)
+            end)
+
+            vim.g.git_worktree = {
+                change_directory_command = 'cd',
+                update_on_change = true,
+                update_on_change_command = 'e .',
+                clearjumps_on_change = true,
+                confirm_telescope_deletions = true,
+                autopush = false,
+             }
+        end
+      },
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
@@ -477,6 +507,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'git_worktree')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
