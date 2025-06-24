@@ -191,6 +191,9 @@
             plenary-nvim
             telescope-nvim
         ];
+        kickstart-avante = [
+          avante-nvim
+        ];
       };
 
       # not loaded automatically at startup.
@@ -290,6 +293,7 @@
           kickstart-zellij-nav = true;
           kickstart-ufo = true;
           kickstart-gitworktree = true;
+          kickstart-avante = true;
 
           # we can pass whatever we want actually.
           have_nerd_font = false;
