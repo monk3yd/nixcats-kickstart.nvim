@@ -43,6 +43,11 @@
       flake = false; # This is a non-flake repository
     };
 
+    plugins-nvim-dap-python = {
+      url = "github:mfussenegger/nvim-dap-python";
+      flake = false;
+    };
+
     # If you wish to define a custom build step not handled by nixpkgs,
     # then you should name it in a different format, and deal with that in the
     # overlay defined for custom builds in the overlays directory.
@@ -187,7 +192,8 @@
               nvim-dap-ui
               nvim-dap-go
               nvim-nio
-              nvim-dap-python
+              # nvim-dap-python # FIX
+              pkgs.neovimPlugins.nvim-dap-python
             ];
             kickstart-indent_line = [
               indent-blankline-nvim

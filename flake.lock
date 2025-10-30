@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "plugins-nvim-dap-python": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759553599,
+        "narHash": "sha256-LRHb7UxY64ZJCbeHYrcq+9+L8RTnw7XSvza2BTHHvFE=",
+        "owner": "mfussenegger",
+        "repo": "nvim-dap-python",
+        "rev": "64652d1ae1db80870d9aac7132d76e37acd86a26",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mfussenegger",
+        "repo": "nvim-dap-python",
+        "type": "github"
+      }
+    },
     "plugins-submode": {
       "flake": false,
       "locked": {
@@ -47,7 +63,7 @@
         "type": "github"
       }
     },
-    "plugins-winresizer": {
+    "plugins-winresize": {
       "flake": false,
       "locked": {
         "lastModified": 1736192087,
@@ -67,8 +83,9 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-nvim-dap-python": "plugins-nvim-dap-python",
         "plugins-submode": "plugins-submode",
-        "plugins-winresizer": "plugins-winresizer"
+        "plugins-winresize": "plugins-winresize"
       }
     }
   },
