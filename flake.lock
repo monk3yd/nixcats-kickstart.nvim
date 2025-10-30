@@ -31,10 +31,44 @@
         "type": "github"
       }
     },
+    "plugins-submode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736191083,
+        "narHash": "sha256-RYf/gyz1Mo38rl/UjjR9vUBfOsxwS3TBDb/1hx7a3Tw=",
+        "owner": "pogyomo",
+        "repo": "submode.nvim",
+        "rev": "cafc73f8626fd9e06dc91fd079817a0f1d7287bc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pogyomo",
+        "repo": "submode.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-winresizer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736192087,
+        "narHash": "sha256-g+2JAzYiTOA2MuJ3eSdnTWObx96UAheFsslVvQgitFI=",
+        "owner": "pogyomo",
+        "repo": "winresize.nvim",
+        "rev": "df7ac44154565b0bb91a8894ffe57c5a93689f10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pogyomo",
+        "repo": "winresize.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "plugins-submode": "plugins-submode",
+        "plugins-winresizer": "plugins-winresizer"
       }
     }
   },

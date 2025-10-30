@@ -32,6 +32,17 @@
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
     # Then you should name it "plugins-something"
+
+    plugins-winresize = {
+      url = "github:pogyomo/winresize.nvim";
+      flake = false; # This is a non-flake repository
+    };
+
+    plugins-submode = {
+      url = "github:pogyomo/submode.nvim";
+      flake = false; # This is a non-flake repository
+    };
+
     # If you wish to define a custom build step not handled by nixpkgs,
     # then you should name it in a different format, and deal with that in the
     # overlay defined for custom builds in the overlays directory.
@@ -215,6 +226,11 @@
             kickstart-opencode = [
               opencode-nvim
             ];
+
+            kickstart-resize = [
+              pkgs.neovimPlugins.winresize
+              pkgs.neovimPlugins.submode
+            ];
           };
 
           # not loaded automatically at startup.
@@ -316,6 +332,7 @@
               kickstart-gitworktree = true;
               kickstart-avante = false;
               kickstart-opencode = true;
+              kickstart-resize = true;
 
               # we can pass whatever we want actually.
               have_nerd_font = false;

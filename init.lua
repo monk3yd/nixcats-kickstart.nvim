@@ -189,10 +189,24 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- resize with arrows
-vim.keymap.set('n', '<c-up>', ':resize -2<cr>', { silent = true })
-vim.keymap.set('n', '<c-down>', ':resize +2<cr>', { silent = true })
-vim.keymap.set('n', '<c-left>', ':vertical resize -2<cr>', { silent = true })
-vim.keymap.set('n', '<c-right>', ':vertical resize +2<cr>', { silent = true })
+-- vim.keymap.set('n', '<c-up>', ':resize +2<cr>', { silent = true })
+-- vim.keymap.set('n', '<c-down>', ':resize -2<cr>', { silent = true })
+-- vim.keymap.set('n', '<c-left>', ':vertical resize -2<cr>', { silent = true })
+-- vim.keymap.set('n', '<c-right>', ':vertical resize +2<cr>', { silent = true })
+
+-- resize with hotkeys
+-- can't use ALT because is a zellij specific keymap
+-- can't use CTRL + ALT because it conflicts with zellij-nvim plugin
+-- vim.keymap.set('n', '<S-A-k>', ':resize +2<cr>', { silent = true })
+-- vim.keymap.set('n', '<S-A-j>', ':resize -2<cr>', { silent = true })
+-- vim.keymap.set('n', '<S-A-h>', ':vertical resize -2<cr>', { silent = true })
+-- vim.keymap.set('n', '<S-A-l>', ':vertical resize +2<cr>', { silent = true })
+
+-- resize windows relative to the cursor position
+vim.keymap.set('n', '<S-A-k>', '2<C-w>+', { desc = 'Increase window height' })
+vim.keymap.set('n', '<S-A-j>', '2<C-w>-', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<S-A-h>', '2<C-w><', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<S-A-l>', '2<C-w>>', { desc = 'Increase window width' })
 
 -- Navigate buffers
 -- keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", { silent = true })
