@@ -193,6 +193,7 @@
               nvim-dap-go
               nvim-nio
               nvim-dap-python
+              nvim-dap-virtual-text
               # pkgs.neovimPlugins.nvim-dap-python
             ];
             kickstart-indent_line = [
