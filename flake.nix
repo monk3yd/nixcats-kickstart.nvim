@@ -43,11 +43,6 @@
       flake = false; # This is a non-flake repository
     };
 
-    plugins-nvim-dap-python = {
-      url = "github:mfussenegger/nvim-dap-python";
-      flake = false;
-    };
-
     # If you wish to define a custom build step not handled by nixpkgs,
     # then you should name it in a different format, and deal with that in the
     # overlay defined for custom builds in the overlays directory.
@@ -191,8 +186,8 @@
               nvim-dap
               nvim-dap-ui
               nvim-dap-go
-              nvim-nio
               nvim-dap-python
+              nvim-nio
               nvim-dap-virtual-text
               # pkgs.neovimPlugins.nvim-dap-python
             ];
@@ -227,9 +222,6 @@
               plenary-nvim
               telescope-nvim
             ];
-            # kickstart-avante = [
-            #   avante-nvim
-            # ];
             kickstart-opencode = [
               opencode-nvim
             ];
@@ -337,7 +329,6 @@
               kickstart-zellij-nav = true;
               kickstart-ufo = true;
               kickstart-gitworktree = true;
-              # kickstart-avante = false;
               kickstart-opencode = true;
               kickstart-resize = true;
 
