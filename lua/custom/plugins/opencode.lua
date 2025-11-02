@@ -8,6 +8,9 @@ return {
   config = function()
     vim.g.opencode_opts = {
       -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on `opencode_opts`.
+      port = 3000,
+      on_send = function() end,
+      on_opencode_not_found = function() end,
     }
 
     -- Required for `vim.g.opencode_opts.auto_reload`.
@@ -26,9 +29,9 @@ return {
       require('opencode').prompt '@this'
     end, { desc = 'opencode: Add this' })
 
-    vim.keymap.set('n', '<leader>ot', function()
-      require('opencode').toggle()
-    end, { desc = 'opencode: Toggle embedded' })
+    -- vim.keymap.set('n', '<leader>ot', function()
+    --   require('opencode').toggle()
+    -- end, { desc = 'opencode: Toggle embedded' })
 
     vim.keymap.set('n', '<leader>oc', function()
       require('opencode').command()
