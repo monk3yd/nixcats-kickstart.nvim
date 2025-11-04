@@ -8,7 +8,10 @@ return {
   config = function()
     vim.g.opencode_opts = {
       -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on `opencode_opts`.
-      port = 3000,
+      --
+      -- FIX can we configure for the opencode agent to know that
+      -- the request is comming from neovim CWD?
+      port = 3002,
       on_send = function() end,
       on_opencode_not_found = function() end,
     }
