@@ -191,6 +191,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- resize with hotkeys
 -- can't use ALT because is a zellij specific keymap
 -- can't use CTRL + ALT because it conflicts with zellij-nvim plugin
+-- fix: used winresize plugin for resizing nvim specific windows
 -- vim.keymap.set('n', '<S-A-k>', ':resize +2<cr>', { silent = true })
 -- vim.keymap.set('n', '<S-A-j>', ':resize -2<cr>', { silent = true })
 -- vim.keymap.set('n', '<S-A-h>', ':vertical resize -2<cr>', { silent = true })
