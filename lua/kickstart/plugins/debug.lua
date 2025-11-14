@@ -65,6 +65,8 @@ return {
     vim.keymap.set('n', '<F5>', dap.step_back, { desc = 'Debug: Step Back' })
 
     vim.keymap.set('n', '<F6>', dap.terminate, { desc = 'Debug: Terminate' })
+    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+    vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
     vim.keymap.set('n', '<F12>', dap.restart, { desc = 'Debug: Restart' })
     vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
     vim.keymap.set('n', '<leader>B', function()
