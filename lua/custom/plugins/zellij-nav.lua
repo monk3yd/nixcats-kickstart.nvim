@@ -9,4 +9,12 @@ return {
     { '<c-l>', '<cmd>ZellijNavigateRight<cr>', { silent = true, desc = 'navigate right' } },
   },
   opts = {},
+  config = function()
+    require('zellij-nav').setup()
+
+    vim.api.nvim_create_autocmd('VimLeave', {
+      pattern = '*',
+      command = 'silent !zellij action switch-mode normal',
+    })
+  end,
 }
