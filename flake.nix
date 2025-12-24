@@ -23,6 +23,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -88,6 +89,7 @@
           # use `pkgs.neovimPlugins`, which is a set of our plugins.
           (utils.standardPluginOverlay inputs)
           # add any other flake overlays here.
+          inputs.neorg-overlay.overlays.default
 
           # when other people mess up their overlays by wrapping them with system,
           # you may instead call this function on their overlay.
@@ -143,6 +145,9 @@
             kickstart-lint = [
               markdownlint-cli
               ruff
+            ];
+            kickstart-neorg = [
+              luajitPackages.luarocks
             ];
           };
 
@@ -225,10 +230,13 @@
             kickstart-opencode = [
               opencode-nvim
             ];
-
             kickstart-resize = [
               pkgs.neovimPlugins.winresize
               pkgs.neovimPlugins.submode
+            ];
+            kickstart-neorg = [
+              neorg
+              (nvim-treesitter.withPlugins (p: [ p.tree-sitter-norg p.tree-sitter-norg-meta ]))
             ];
           };
 
@@ -279,6 +287,7 @@
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
             test = [ (_: [ ]) ];
+            kickstart-neorg = [ (ps: [ ps.lua-utils-nvim ps.pathlib-nvim ]) ];
           };
         };
 
@@ -331,6 +340,8 @@
               kickstart-gitworktree = true;
               kickstart-opencode = true;
               kickstart-resize = true;
+
+              kickstart-neorg = true;
 
               # we can pass whatever we want actually.
               have_nerd_font = false;
