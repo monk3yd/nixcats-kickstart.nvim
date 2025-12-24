@@ -105,7 +105,7 @@ vim.opt.showmode = false
 vim.opt.clipboard = 'unnamedplus'
 
 -- Load OSC 52 clipboard for SSH sessions
-require('custom.clipboard-osc52')
+require 'custom.clipboard-osc52'
 
 -- Enable break indent
 vim.opt.breakindent = true

@@ -1,5 +1,7 @@
 #!/bin/bash
 
-# nix build .
+# build new neovim
+nix build .#nvim
 
-nix run #nvim
+# test it
+# ./result/bin/nvim

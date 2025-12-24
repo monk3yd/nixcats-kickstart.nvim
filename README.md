@@ -1,22 +1,11 @@
-# Plugins TODO
+# TODO
 
-- [ ] swaits/zellij-nav.nvim // tmux
-- [ ] kevinhwang91/nvim-ufo
-- [ ] harpoon
-- [ ] git-workspaces
-- [ ] AI option (on/off) ?
-- [ ] Note taking NeOrg (worth?)
+## Plugins
 
-# Features TODO/TEST
-
-- [ ] Python ecosystem (debugger, linter, ...)
-- [ ] Golang ecosystem
-- [ ] Lua ecosystem
-- [ ] Nix ecosystem
-- [ ] JS ecosystem (iuuhg)
-- [ ] HTML/HTMX
-- [ ] CSS/TailwindCSS
-- [ ] Templ (?)
+- [x] zellij
+- [x] ufo
+- [x] opencode
+- [x] neorg
 
 # This is the help for the nixCats lazy wrapper
 
