@@ -16,13 +16,18 @@ return {
         ['core.dirman'] = {
           config = {
             workspaces = {
-              notes = '~/notes',
+              notes = '~/neorg/notes',
+              gtd = '~/neorg/gtd',
             },
-            default_workspace = 'notes',
+            default_workspace = 'gtd',
           },
         },
       },
     }
+    vim.keymap.set('n', '<Leader>ii', '<cmd>Neorg index<CR>', { desc = '[norg]: Open Index of current workspace' })
+    vim.keymap.set('n', '<Leader>io', function()
+      vim.cmd 'e ~/neorg/gtd/inbox.norg'
+    end, { desc = '[norg]: Open Inbox' })
 
     vim.wo.foldlevel = 99
     vim.wo.conceallevel = 2
