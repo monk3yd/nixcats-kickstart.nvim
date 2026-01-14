@@ -214,9 +214,9 @@
               nvim-web-devicons
               plenary-nvim
             ];
-            kickstart-zellij-nav = [
-              zellij-nav-nvim
-            ];
+            # kickstart-zellij-nav = [
+            #   zellij-nav-nvim
+            # ];
             kickstart-ufo = [
               nvim-ufo
               promise-async
@@ -236,7 +236,13 @@
             ];
             kickstart-neorg = [
               neorg
-              (nvim-treesitter.withPlugins (p: [ p.tree-sitter-norg p.tree-sitter-norg-meta ]))
+              (nvim-treesitter.withPlugins (p: [
+                p.tree-sitter-norg
+                p.tree-sitter-norg-meta
+              ]))
+            ];
+            kickstart-smartsplits = [
+              smart-splits-nvim
             ];
           };
 
@@ -287,7 +293,12 @@
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
             test = [ (_: [ ]) ];
-            kickstart-neorg = [ (ps: [ ps.lua-utils-nvim ps.pathlib-nvim ]) ];
+            kickstart-neorg = [
+              (ps: [
+                ps.lua-utils-nvim
+                ps.pathlib-nvim
+              ])
+            ];
           };
         };
 
@@ -335,13 +346,14 @@
               # but we can still send the info from nix to lua that we want it!
               kickstart-gitsigns = true;
 
-              kickstart-zellij-nav = true;
+              # kickstart-zellij-nav = false;
               kickstart-ufo = true;
               kickstart-gitworktree = true;
               kickstart-opencode = true;
               kickstart-resize = true;
 
               kickstart-neorg = true;
+              kickstart-smartsplits = true;
 
               # we can pass whatever we want actually.
               have_nerd_font = false;
