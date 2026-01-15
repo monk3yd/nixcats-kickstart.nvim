@@ -22,10 +22,15 @@ local function setup_osc52()
   }
 end
 
--- LOGIC:
--- 1. If we are in an SSH session (SSH_TTY), always use OSC 52.
--- 2. OR: If standard clipboard tools (xclip/wl-copy/pbcopy) are MISSING, use OSC 52.
-if os.getenv 'SSH_TTY' ~= nil or (vim.fn.executable 'wl-copy' == 0 and vim.fn.executable 'xclip' == 0 and vim.fn.executable 'pbcopy' == 0) then
+-- LOGIC MEJORADA:
+-- 1. Si estamos en SSH.
+-- 2. O si estamos dentro de ZELLIJ (para que funcione igual local y remoto).
+-- 3. O si faltan las herramientas del sistema.
+if
+  os.getenv 'SSH_TTY' ~= nil
+  or os.getenv 'ZELLIJ' ~= nil
+  or (vim.fn.executable 'wl-copy' == 0 and vim.fn.executable 'xclip' == 0 and vim.fn.executable 'pbcopy' == 0)
+then
   setup_osc52()
 end
 
