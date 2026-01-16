@@ -326,6 +326,16 @@ local lazyOptions = {
 -- NOTE: Here is where you install your plugins.
 -- NOTE: nixCats: this the lazy wrapper. Use it like require('lazy').setup() but with an extra
 -- argument, the path to lazy.nvim as downloaded by nix, or nil, before the normal arguments.
+
+-- Ensure `.org` buffers get `ft=org` so orgmode can lazy-load.
+if require('nixCatsUtils').enableForCategory 'kickstart-orgmode' then
+  vim.filetype.add {
+    extension = {
+      org = 'org',
+    },
+  }
+end
+
 require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 'lazy.nvim' }, {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically

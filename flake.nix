@@ -23,7 +23,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -41,6 +41,16 @@
 
     plugins-submode = {
       url = "github:pogyomo/submode.nvim";
+      flake = false; # This is a non-flake repository
+    };
+
+    plugins-telescope_orgmode = {
+      url = "github:nvim-orgmode/telescope-orgmode.nvim";
+      flake = false; # This is a non-flake repository
+    };
+
+    plugins-org_bullets = {
+      url = "github:nvim-orgmode/org-bullets.nvim";
       flake = false; # This is a non-flake repository
     };
 
@@ -89,7 +99,7 @@
           # use `pkgs.neovimPlugins`, which is a set of our plugins.
           (utils.standardPluginOverlay inputs)
           # add any other flake overlays here.
-          inputs.neorg-overlay.overlays.default
+          # inputs.neorg-overlay.overlays.default
 
           # when other people mess up their overlays by wrapping them with system,
           # you may instead call this function on their overlay.
@@ -146,9 +156,9 @@
               markdownlint-cli
               ruff
             ];
-            kickstart-neorg = [
-              luajitPackages.luarocks
-            ];
+            # kickstart-neorg = [
+            #   luajitPackages.luarocks
+            # ];
           };
 
           # This is for plugins that will load at startup without using packadd:
@@ -234,12 +244,21 @@
               pkgs.neovimPlugins.winresize
               pkgs.neovimPlugins.submode
             ];
-            kickstart-neorg = [
-              neorg
-              (nvim-treesitter.withPlugins (p: [
-                p.tree-sitter-norg
-                p.tree-sitter-norg-meta
-              ]))
+            # kickstart-neorg = [
+            #   neorg
+            #   (nvim-treesitter.withPlugins (p: [
+            #     p.tree-sitter-norg
+            #     p.tree-sitter-norg-meta
+            #   ]))
+            # ];
+            kickstart-orgmode = [
+              orgmode
+              pkgs.neovimPlugins.telescope_orgmode
+              pkgs.neovimPlugins.org_bullets
+              (pkgs.runCommand "nvim-treesitter-parser-org" { } ''
+                mkdir -p $out/parser
+                cp ${pkgs.luajitPackages.tree-sitter-orgmode}/lib/lua/5.1/parser/org.so $out/parser/org.so
+              '')
             ];
             kickstart-smartsplits = [
               smart-splits-nvim
@@ -293,12 +312,12 @@
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
             test = [ (_: [ ]) ];
-            kickstart-neorg = [
-              (ps: [
-                ps.lua-utils-nvim
-                ps.pathlib-nvim
-              ])
-            ];
+            # kickstart-neorg = [
+            #   (ps: [
+            #     ps.lua-utils-nvim
+            #     ps.pathlib-nvim
+            #   ])
+            # ];
           };
         };
 
@@ -352,7 +371,8 @@
               kickstart-opencode = true;
               kickstart-resize = true;
 
-              kickstart-neorg = true;
+              # kickstart-neorg = true;
+              kickstart-orgmode = true;
               kickstart-smartsplits = true;
 
               # we can pass whatever we want actually.
