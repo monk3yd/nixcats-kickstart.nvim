@@ -16,8 +16,8 @@ return {
     end
 
     require('orgmode').setup {
-      org_agenda_files = '~/orgfiles/**/*',
-      org_default_notes_file = '~/orgfiles/refile.org',
+      org_agenda_files = '~/org/**/*',
+      org_default_notes_file = '~/org/refile.org',
       org_startup_folded = 'showeverything',
     }
 
@@ -34,7 +34,7 @@ return {
       pattern = 'org',
       callback = function(event)
         vim.keymap.set('n', '<leader>ii', function()
-          vim.cmd('edit ' .. vim.fn.expand '~/orgfiles/refile.org')
+          vim.cmd('edit ' .. vim.fn.expand '~/org/refile.org')
         end, { buffer = event.buf, desc = 'Org: Open refile' })
 
         vim.keymap.set('n', '<leader>r', function()
