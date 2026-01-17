@@ -1100,5 +1100,10 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
   { import = 'custom.plugins' },
 }, lazyOptions)
 
+-- NOTE: Neovim's module loader caches runtimepath lookups.
+-- Since lazy.nvim/nixCats may modify `runtimepath` during startup, we reset the loader so
+-- `require()` can find modules provided by Nix-installed plugins (e.g. org-roam.nvim).
+vim.loader.reset()
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
