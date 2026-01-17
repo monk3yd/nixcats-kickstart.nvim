@@ -19,6 +19,14 @@ return {
       org_agenda_files = '~/org/**/*',
       org_default_notes_file = '~/org/refile.org',
       org_startup_folded = 'showeverything',
+      mappings = {
+        org = {
+          -- In most terminals, `<Tab>` and `<C-i>` are the same key.
+          -- Disable Org cycling so Tab is free (use ufo/normal fold keys).
+          org_cycle = false,
+          org_global_cycle = false,
+        },
+      },
     }
 
     pcall(function()
