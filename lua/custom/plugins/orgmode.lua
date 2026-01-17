@@ -17,7 +17,7 @@ return {
 
     require('orgmode').setup {
       org_agenda_files = '~/org/**/*',
-      org_default_notes_file = '~/org/refile.org',
+      org_default_notes_file = '~/org/inbox.org',
       org_startup_folded = 'showeverything',
       mappings = {
         org = {
@@ -37,8 +37,8 @@ return {
 
     -- Global keymap for quick idea dumping.
     vim.keymap.set('n', '<leader>ii', function()
-      vim.cmd('edit ' .. vim.fn.expand '~/org/refile.org')
-    end, { desc = 'Org: Open refile (quick dump)' })
+      vim.cmd('edit ' .. vim.fn.expand '~/org/inbox.org')
+    end, { desc = 'Org: Open inbox' })
 
     local orgmode_keymaps = vim.api.nvim_create_augroup('orgmode_keymaps', { clear = true })
 
