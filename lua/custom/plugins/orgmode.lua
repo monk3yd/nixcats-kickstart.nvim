@@ -27,16 +27,17 @@ return {
 
     -- Org completion is handled by blink.cmp configuration.
 
+    -- Global keymap for quick idea dumping.
+    vim.keymap.set('n', '<leader>ii', function()
+      vim.cmd('edit ' .. vim.fn.expand '~/org/refile.org')
+    end, { desc = 'Org: Open refile (quick dump)' })
+
     local orgmode_keymaps = vim.api.nvim_create_augroup('orgmode_keymaps', { clear = true })
 
     vim.api.nvim_create_autocmd('FileType', {
       group = orgmode_keymaps,
       pattern = 'org',
       callback = function(event)
-        vim.keymap.set('n', '<leader>ii', function()
-          vim.cmd('edit ' .. vim.fn.expand '~/org/refile.org')
-        end, { buffer = event.buf, desc = 'Org: Open refile' })
-
         vim.keymap.set('n', '<leader>r', function()
           local telescope = require 'telescope'
           telescope.load_extension 'orgmode'
