@@ -25,6 +25,10 @@ return {
           -- Disable Org cycling so Tab is free (use ufo/normal fold keys).
           org_cycle = false,
           org_global_cycle = false,
+
+          -- 2. MAKE ENTER FOLLOW LINKS
+          -- This maps <Enter> to "Open at point"
+          org_open_at_point = '<CR>',
         },
       },
     }
