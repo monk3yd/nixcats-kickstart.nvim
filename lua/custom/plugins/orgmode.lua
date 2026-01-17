@@ -16,7 +16,11 @@ return {
     end
 
     require('orgmode').setup {
-      org_agenda_files = '~/org/**/*',
+      org_agenda_files = {
+        '~/org/inbox.org',
+        '~/org/projects.org',
+        '~/org/areas.org',
+      },
       org_default_notes_file = '~/org/inbox.org',
       org_startup_folded = 'showeverything',
       mappings = {
