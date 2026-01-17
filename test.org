@@ -1,16 +1,10 @@
-* Heading
+* List
 
 ** Heading 2
-	 some text
 
 ** TODO Heading 3
    DEADLINE: <2026-01-18 dom>
 
-
-
-
-	 # TODO [some link] skdljflajfdl
-
-	 kdjflajlfaj
-
-	 - DONE [ ] slkjda
+* Some Heading
+  SCHEDULED: <2026-01-17 sáb> DEADLINE: <2026-01-18 dom>
+   some text
