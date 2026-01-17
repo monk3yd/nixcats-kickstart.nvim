@@ -178,11 +178,9 @@
               lazydev-nvim
               fidget-nvim
               conform-nvim
-              nvim-cmp
+              blink-cmp
               luasnip
-              cmp_luasnip
-              cmp-nvim-lsp
-              cmp-path
+              friendly-snippets
               gruvbox-material
               toggleterm-nvim
               # tokyonight-nvim

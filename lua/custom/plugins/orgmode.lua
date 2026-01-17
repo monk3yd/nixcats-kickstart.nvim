@@ -25,19 +25,7 @@ return {
       require('org-bullets').setup()
     end)
 
-    pcall(function()
-      require('orgmode.org.autocompletion.cmp')
-      local ok, cmp = pcall(require, 'cmp')
-      if ok then
-        cmp.setup.filetype('org', {
-          sources = cmp.config.sources({
-            { name = 'orgmode' },
-          }, {
-            { name = 'buffer' },
-          }),
-        })
-      end
-    end)
+    -- Org completion is handled by blink.cmp configuration.
 
     local orgmode_keymaps = vim.api.nvim_create_augroup('orgmode_keymaps', { clear = true })
 
