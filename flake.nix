@@ -251,11 +251,13 @@
             # ];
             kickstart-orgmode = [
               orgmode
+              org-roam-nvim
               pkgs.neovimPlugins.telescope_orgmode
               pkgs.neovimPlugins.org_bullets
               (pkgs.runCommand "nvim-treesitter-parser-org" { } ''
-                mkdir -p $out/parser
-                cp ${pkgs.luajitPackages.tree-sitter-orgmode}/lib/lua/5.1/parser/org.so $out/parser/org.so
+                install -Dm444 \
+                  ${pkgs.luajitPackages.tree-sitter-orgmode}/lib/lua/${pkgs.luajit.luaversion}/parser/org.so \
+                  $out/parser/org.so
               '')
             ];
             kickstart-smartsplits = [
