@@ -3,6 +3,19 @@ return {
   config = function()
     local ss = require 'smart-splits'
 
+    ss.setup {
+      -- Enable zellij integration so split navigation can cross the boundary.
+      -- This lets `<C-hjkl>` move within Neovim splits, and when at the edge,
+      -- it asks zellij to move focus to the adjacent pane.
+      multiplexer_integration = 'zellij',
+
+      -- At the edge, hand off to zellij.
+      at_edge = 'wrap',
+
+      -- If zellij focus can't move, allow it to switch tabs.
+      zellij_move_focus_or_tab = true,
+    }
+
     -- Moving between splits (Matches your WezTerm keys)
     vim.keymap.set('n', '<C-h>', ss.move_cursor_left)
     vim.keymap.set('n', '<C-j>', ss.move_cursor_down)
