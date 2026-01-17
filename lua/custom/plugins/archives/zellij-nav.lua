@@ -1,5 +1,10 @@
 return {
   'swaits/zellij-nav.nvim',
+
+  -- Archived: this plugin steals `<C-hjkl>` for zellij pane navigation.
+  -- It can conflict with normal split navigation (`smart-splits.nvim`).
+  enabled = false,
+
   lazy = true,
   event = 'VeryLazy',
   keys = {
