@@ -20,6 +20,7 @@ return {
         '~/org/inbox.org',
         '~/org/projects.org',
         '~/org/areas.org',
+        '~/org/archive.org',
       },
       org_default_notes_file = '~/org/inbox.org',
       org_startup_folded = 'showeverything',
