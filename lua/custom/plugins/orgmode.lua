@@ -33,7 +33,7 @@ return {
 
           -- 2. MAKE ENTER FOLLOW LINKS
           -- This maps <Enter> to "Open at point"
-          org_open_at_point = '<CR>',
+          -- org_open_at_point = '<CR>',
         },
       },
     }
