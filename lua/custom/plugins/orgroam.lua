@@ -12,10 +12,10 @@ return {
   },
   config = function()
     require('org-roam').setup {
-      directory = '~/org/roam',
+      directory = '~/drive/org/roam',
       -- optional
       org_files = {
-        '~/org',
+        '~/drive/org',
       },
     }
   end,
