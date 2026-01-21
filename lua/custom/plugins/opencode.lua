@@ -14,6 +14,36 @@ return {
       port = 3002,
       on_send = function() end,
       on_opencode_not_found = function() end,
+      provider = {
+        azure = {
+          options = {
+            resourceName = vim.env.AZURE_RESOURCE_NAME,
+            apiKey = vim.env.AZURE_API_KEY,
+            apiBase = vim.env.AZURE_API_BASE,
+            apiVersion = vim.env.AZURE_API_VERSION,
+          },
+          models = {
+            ['gpt-5.2-codex'] = {
+              id = 'gpt-5.2-codex',
+              name = 'Azure GPT-5.2 Codex',
+            },
+            ['gpt-5.2'] = {
+              id = 'gpt-5.2',
+              name = 'Azure GPT-5.2',
+            },
+          },
+        },
+      },
+      agents = {
+        {
+          name = 'Codex',
+          model = 'gpt-5.2-codex',
+        },
+        {
+          name = 'General',
+          model = 'gpt-5.2',
+        },
+      },
     }
 
     -- Required for `vim.g.opencode_opts.auto_reload`.
