@@ -17,12 +17,12 @@ return {
 
     require('orgmode').setup {
       org_agenda_files = {
-        '~/org/inbox.org',
-        '~/org/projects.org',
-        '~/org/areas.org',
-        '~/org/archive.org',
+        '~/drive/org/inbox.org',
+        '~/drive/org/projects.org',
+        '~/drive/org/areas.org',
+        '~/drive/org/archive.org',
       },
-      org_default_notes_file = '~/org/inbox.org',
+      org_default_notes_file = '~/drive/org/inbox.org',
       org_startup_folded = 'showeverything',
       mappings = {
         org = {
@@ -46,7 +46,7 @@ return {
 
     -- Global keymap for quick idea dumping.
     vim.keymap.set('n', '<leader>ii', function()
-      vim.cmd('edit ' .. vim.fn.expand '~/org/inbox.org')
+      vim.cmd('edit ' .. vim.fn.expand '~/drive/org/inbox.org')
     end, { desc = 'Org: Open inbox' })
 
     local orgmode_keymaps = vim.api.nvim_create_augroup('orgmode_keymaps', { clear = true })
