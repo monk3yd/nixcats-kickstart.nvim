@@ -22,14 +22,18 @@ local function setup_osc52()
   }
 end
 
--- LOGIC MEJORADA:
--- 1. Si estamos en SSH.
--- 2. O si estamos dentro de ZELLIJ (para que funcione igual local y remoto).
--- 3. O si faltan las herramientas del sistema.
+-- LOGIC:
+-- 1. If inside SSH.
+-- 2. Or inside Zellij (so clipboard works identically local and remote).
+-- 3. Or system clipboard tools are missing.
+-- 4. Or inside wezterm but no display socket (mux tabs 2+).
 if
   os.getenv 'SSH_TTY' ~= nil
   or os.getenv 'ZELLIJ' ~= nil
   or (vim.fn.executable 'wl-copy' == 0 and vim.fn.executable 'xclip' == 0 and vim.fn.executable 'pbcopy' == 0)
+  or (os.getenv 'WEZTERM_EXECUTABLE' ~= nil
+      and os.getenv 'WAYLAND_DISPLAY' == nil
+      and os.getenv 'DISPLAY' == nil)
 then
   setup_osc52()
 end
